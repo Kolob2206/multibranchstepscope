@@ -38,3 +38,31 @@ step "Hello world (using Bash)" {
         }
     }
 }
+
+step "Package Custom Template" {
+    properties = {
+        Octopus.Action.TargetRoles = "client"
+    }
+
+    action {
+        properties = {
+            ApplicationName = "{\"PackageId\":\"#{package}\",\"FeedId\":\"Octopus Server (built-in)\"}"
+            ClientSecret = "hi"
+            Octopus.Action.Package.FeedId = "Octopus Server (built-in)"
+            Octopus.Action.Package.PackageId = "#{package}"
+            Octopus.Action.Template.Id = "ActionTemplates-1103"
+            Octopus.Action.Template.Version = "13"
+        }
+        worker_pool_variable = ""
+
+        packages {
+            acquisition_location = "Server"
+            feed = "Octopus Server (built-in)"
+            package_id = "#{package}"
+            properties = {
+                PackageParameterName = "ApplicationName"
+                SelectionMode = "deferred"
+            }
+        }
+    }
+}
