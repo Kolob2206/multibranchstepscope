@@ -55,3 +55,31 @@ step "Second Branch Step" {
         worker_pool_variable = ""
     }
 }
+
+step "Package Custom Template" {
+    properties = {
+        Octopus.Action.TargetRoles = "client"
+    }
+
+    action {
+        properties = {
+            ApplicationName = "{\"PackageId\":\"CompTracker.Data.Migrator\",\"FeedId\":\"Octopus Server (built-in)\"}"
+            ClientSecret = "hi"
+            Octopus.Action.Package.FeedId = "Octopus Server (built-in)"
+            Octopus.Action.Package.PackageId = "CompTracker.Data.Migrator"
+            Octopus.Action.Template.Id = "ActionTemplates-1103"
+            Octopus.Action.Template.Version = "13"
+        }
+        worker_pool_variable = ""
+
+        packages {
+            acquisition_location = "Server"
+            feed = "Octopus Server (built-in)"
+            package_id = "CompTracker.Data.Migrator"
+            properties = {
+                PackageParameterName = "ApplicationName"
+                SelectionMode = "deferred"
+            }
+        }
+    }
+}
