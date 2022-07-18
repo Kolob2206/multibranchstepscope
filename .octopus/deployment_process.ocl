@@ -38,3 +38,18 @@ step "Hello world (using Bash)" {
         }
     }
 }
+
+step "Create a Backup" {
+    properties = {
+        Octopus.Action.TargetRoles = "client"
+    }
+
+    action {
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Template.Id = "ActionTemplates-1322"
+            Octopus.Action.Template.Version = "0"
+        }
+        worker_pool_variable = ""
+    }
+}
