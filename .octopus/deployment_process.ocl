@@ -53,3 +53,18 @@ step "Create a Backup" {
         worker_pool_variable = ""
     }
 }
+
+step "CaC Script" {
+    properties = {
+        Octopus.Action.TargetRoles = "client"
+    }
+
+    action {
+        properties = {
+            Octopus.Action.RunOnServer = "false"
+            Octopus.Action.Template.Id = "ActionTemplates-1323"
+            Octopus.Action.Template.Version = "0"
+        }
+        worker_pool_variable = ""
+    }
+}
