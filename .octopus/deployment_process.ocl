@@ -1,7 +1,7 @@
 step "hello-world-using-powershell" {
     name = "Hello world (using PowerShell)"
     properties = {
-        Octopus.Action.TargetRoles = "client"
+        Octopus.Action.TargetRoles = "client,eidaw"
     }
 
     action {
@@ -25,7 +25,7 @@ step "hello-world-using-powershell" {
 step "hello-world-using-bash" {
     name = "Hello world (using Bash)"
     properties = {
-        Octopus.Action.TargetRoles = "client"
+        Octopus.Action.TargetRoles = "client,eidaw"
     }
     start_trigger = "StartWithPrevious"
 
@@ -34,7 +34,7 @@ step "hello-world-using-bash" {
         is_required = true
         properties = {
             Octopus.Action.RunOnServer = "false"
-            Octopus.Action.Script.ScriptBody = "write-host 'hi'"
+            Octopus.Action.Script.ScriptBody = "write-host 'hisdf'"
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
@@ -51,7 +51,7 @@ step "second-branch-step" {
         action_type = "Octopus.Script"
         properties = {
             Octopus.Action.RunOnServer = "false"
-            Octopus.Action.Script.ScriptBody = "write-host 'hi'"
+            Octopus.Action.Script.ScriptBody = "write-host 'hisdf'"
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
@@ -78,7 +78,7 @@ step "package-custom-template" {
         worker_pool_variable = ""
 
         packages {
-            acquisition_location = ""
+            acquisition_location = "Server"
             feed = "octopus-server-built-in"
             package_id = "#{package}"
             properties = {
