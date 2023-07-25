@@ -3,8 +3,7 @@ connectivity_policy {
 }
 
 versioning_strategy {
-
     donor_package {
-        step = "Package Custom Template"
+        step = "package-custom-template"
     }
 }

@@ -1,4 +1,5 @@
-step "Hello world (using PowerShell)" {
+step "hello-world-using-powershell" {
+    name = "Hello world (using PowerShell)"
     properties = {
         Octopus.Action.TargetRoles = "client"
     }
@@ -14,14 +15,15 @@ step "Hello world (using PowerShell)" {
                 #TODO: Experiment with steps of your own :)
                 
                 Write-Host '[Learn more about the types of steps available in Octopus](https://oc.to/OnboardingAddStepsLearnMore)'
-            EOT
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
     }
 }
 
-step "Hello world (using Bash)" {
+step "hello-world-using-bash" {
+    name = "Hello world (using Bash)"
     properties = {
         Octopus.Action.TargetRoles = "client"
     }
@@ -39,7 +41,8 @@ step "Hello world (using Bash)" {
     }
 }
 
-step "Second Branch Step" {
+step "second-branch-step" {
+    name = "Second Branch Step"
     properties = {
         Octopus.Action.TargetRoles = "client"
     }
@@ -56,16 +59,17 @@ step "Second Branch Step" {
     }
 }
 
-step "Package Custom Template" {
+step "package-custom-template" {
+    name = "Package Custom Template"
     properties = {
         Octopus.Action.TargetRoles = "client"
     }
 
     action {
         properties = {
-            ApplicationName = "{\"PackageId\":\"#{package}\",\"FeedId\":\"Octopus Server (built-in)\"}"
+            ApplicationName = "{\"PackageId\":\"#{package}\",\"FeedId\":\"octopus-server-built-in\"}"
             ClientSecret = "hi"
-            Octopus.Action.Package.FeedId = "Octopus Server (built-in)"
+            Octopus.Action.Package.FeedId = "octopus-server-built-in"
             Octopus.Action.Package.PackageId = "#{package}"
             Octopus.Action.RunOnServer = "false"
             Octopus.Action.Template.Id = "ActionTemplates-1103"
@@ -74,7 +78,8 @@ step "Package Custom Template" {
         worker_pool_variable = ""
 
         packages {
-            feed = "Octopus Server (built-in)"
+            acquisition_location = ""
+            feed = "octopus-server-built-in"
             package_id = "#{package}"
             properties = {
                 PackageParameterName = "ApplicationName"
