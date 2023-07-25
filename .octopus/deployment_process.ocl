@@ -1,4 +1,5 @@
-step "Hello world (using PowerShell)" {
+step "hello-world-using-powershell" {
+    name = "Hello world (using PowerShell)"
     properties = {
         Octopus.Action.TargetRoles = "client"
     }
@@ -14,14 +15,15 @@ step "Hello world (using PowerShell)" {
                 #TODO: Experiment with steps of your own :)
                 
                 Write-Host '[Learn more about the types of steps available in Octopus](https://oc.to/OnboardingAddStepsLearnMore)'
-            EOT
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
     }
 }
 
-step "Hello world (using Bash)" {
+step "hello-world-using-bash" {
+    name = "Hello world (using Bash)"
     properties = {
         Octopus.Action.TargetRoles = "client"
     }
@@ -39,7 +41,8 @@ step "Hello world (using Bash)" {
     }
 }
 
-step "Create a Backup" {
+step "create-a-backup" {
+    name = "Create a Backup"
     properties = {
         Octopus.Action.TargetRoles = "client"
     }
@@ -54,7 +57,8 @@ step "Create a Backup" {
     }
 }
 
-step "CaC Script" {
+step "cac-script" {
+    name = "CaC Script"
     properties = {
         Octopus.Action.TargetRoles = "client"
     }
