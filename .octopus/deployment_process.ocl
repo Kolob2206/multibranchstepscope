@@ -59,16 +59,13 @@ step "create-a-backup" {
 
 step "cac-script" {
     name = "CaC Script"
-    properties = {
-        Octopus.Action.TargetRoles = "client"
-    }
 
     action {
         properties = {
-            Octopus.Action.RunOnServer = "false"
             Octopus.Action.Template.Id = "ActionTemplates-1323"
             Octopus.Action.Template.Version = "0"
         }
         tenant_tags = ["ShipStation-Dev/SS-Dev-Legacy-DB"]
+        worker_pool = "hosted-windows"
     }
 }
