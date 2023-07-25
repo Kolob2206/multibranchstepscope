@@ -1,7 +1,7 @@
 step "hello-world-using-powershell" {
     name = "Hello world (using PowerShell)"
     properties = {
-        Octopus.Action.TargetRoles = "client"
+        Octopus.Action.TargetRoles = "client,double"
     }
 
     action {
@@ -25,7 +25,7 @@ step "hello-world-using-powershell" {
 step "hello-world-using-bash" {
     name = "Hello world (using Bash)"
     properties = {
-        Octopus.Action.TargetRoles = "client"
+        Octopus.Action.TargetRoles = "client,double"
     }
     start_trigger = "StartWithPrevious"
 
@@ -44,7 +44,7 @@ step "hello-world-using-bash" {
 step "create-a-backup" {
     name = "Create a Backup"
     properties = {
-        Octopus.Action.TargetRoles = "client"
+        Octopus.Action.TargetRoles = "client,double"
     }
 
     action {
