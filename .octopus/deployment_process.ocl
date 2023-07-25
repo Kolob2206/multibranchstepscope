@@ -1,7 +1,7 @@
 step "hello-world-using-powershell" {
     name = "Hello world (using PowerShell)"
     properties = {
-        Octopus.Action.TargetRoles = "client,double"
+        Octopus.Action.TargetRoles = "client,double,devonly"
     }
 
     action {
@@ -25,7 +25,7 @@ step "hello-world-using-powershell" {
 step "hello-world-using-bash" {
     name = "Hello world (using Bash)"
     properties = {
-        Octopus.Action.TargetRoles = "client,double"
+        Octopus.Action.TargetRoles = "client,double,devonly"
     }
     start_trigger = "StartWithPrevious"
 
