@@ -75,6 +75,7 @@ step "package-custom-template" {
             Octopus.Action.Template.Id = "ActionTemplates-1103"
             Octopus.Action.Template.Version = "13"
         }
+        tenant_tags = ["ShipStation-Dev/SS-Dev-Legacy-DB"]
         worker_pool_variable = ""
 
         packages {
